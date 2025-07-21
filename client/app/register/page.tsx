@@ -1,28 +1,95 @@
 "use client"
-import {getUser} from "@/api/api"
-// import { useEffect, useState } from "react"
+import { createUser, getUser } from "@/api/api"
+import React, { useEffect, useState } from "react"
 
 export default function RegisterPage() {
-    //let [form, setForm] = useState()
-//     let handleSubmit = async (e) => {
-//         e.preventDefault()
-//
-//         let response = await fetch('/')
-    //     }
-    async function testingFeat() {
-        let response = await getUser()
+    let [form, setForm] = useState({
+        name: "",
+        username: "",
+        email: "",
+        password: "",
+        bio: "",
+    })
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
+
+    async function createNewUser(e: React.FormEvent) {
+        e.preventDefault()
+        let response = await createUser(form)
         console.log(response)
     }
     return (
         <main>
-            <form action="/register" method="post">
-                <input type="name" className="outline-1" name="name" id="name" placeholder="First Name and Last Name"/>
-                <input type="username" className="outline-1" name="username" id="username" placeholder="username"/>
-                <input type="email" className="outline-1" name="email" id="email" placeholder="email"/>
-                <input type="password" className="outline-1" name="password" id="password" placeholder="password" />
-                <button type="submit">Register</button>
+            <form onSubmit={createNewUser}>
+                <fieldset>
+                    <legend>Register</legend>
+
+                    <section>
+                        <label htmlFor="name">Name:</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={form.name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </section>
+
+                    <section>
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={form.username}
+                            onChange={handleChange}
+                            required
+                        />
+                    </section>
+
+                    <section>
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </section>
+
+                    <section>
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={form.password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </section>
+
+                    <section>
+                        <label htmlFor="bio">Bio:</label>
+                        <input
+                            type="text"
+                            id="bio"
+                            name="bio"
+                            value={form.bio}
+                            onChange={handleChange}
+                        />
+                    </section>
+
+                    <section>
+                        <button type="submit">Submit</button>
+                    </section>
+                </fieldset>
             </form>
-            <button onClick={testingFeat}>swwwwwww</button>
         </main>
     )
 }
