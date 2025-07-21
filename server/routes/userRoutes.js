@@ -18,10 +18,11 @@ userRoutes.route('/api/users').post(async (req, res) => {
         email: req.body.email,
         password: req.body.password,
         bio: req.body.bio,
-        createdAt: new Date().toISOString()
+        createdAt: new Date()
     }
     try {
-        let data = db.collection('users').insertOne(userSchema)
+        let data = await db.collection('users').insertOne(userSchema)
+        res.json({message: 'success'})
     } catch {
         console.error('failed')
     }
