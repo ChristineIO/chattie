@@ -1,4 +1,18 @@
+"use client"
+import {getUser} from "@/api/api"
+// import { useEffect, useState } from "react"
+
 export default function RegisterPage() {
+    //let [form, setForm] = useState()
+//     let handleSubmit = async (e) => {
+//         e.preventDefault()
+//
+//         let response = await fetch('/')
+    //     }
+    async function testingFeat() {
+        let response = await getUser()
+        console.log(response)
+    }
     return (
         <main>
             <form action="/register" method="post">
@@ -8,6 +22,7 @@ export default function RegisterPage() {
                 <input type="password" className="outline-1" name="password" id="password" placeholder="password" />
                 <button type="submit">Register</button>
             </form>
+            <button onClick={testingFeat}>swwwwwww</button>
         </main>
     )
 }
