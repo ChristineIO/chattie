@@ -8,10 +8,10 @@
 }
 
 .inputField > input {
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 10px 20px 10px 8px;
     outline: none;
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--accent);
     border-radius: 15px;
     display: inline-block;
 }
@@ -27,7 +27,8 @@
 }
 
 .formBox {
-  height: 58vh;
+  min-height: 58vh;
+  max-height: auto;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -38,6 +39,7 @@
   color: var(--text);
   padding: 2.5rem;
   margin: 1rem;
+  min-width: 20px;
   border-radius: 10%;
 }
 
