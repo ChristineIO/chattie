@@ -1,4 +1,5 @@
 import Button from "../components/Button"
+import Link from "next/link"
 import InputField from "../components/InputField"
 import forms from "../styles/forms.module.css"
 
@@ -10,8 +11,13 @@ export default function LoginPage() {
                 <InputField label="Email" type="email" name="email" maxLength={40} />
                 <InputField label="Password" type="password" name="password" maxLength={40} />
                 <section className="mt-2.5">
-                    <button type="submit" className={`pt-2.5 pb-2.5 pl-4 pr-4 rounded-xl ${forms.formBtn}`}>Login</button>
+                    <Button type="submit" className={`pt-2.5 pb-2.5 pl-4 pr-4 rounded-xl ${forms.formBtn}`}>Login</Button>
                 </section>
+                <Link
+                    href="/register"
+                    className={`underline primary`}>
+                    Create an Account
+                </Link>
             </form>
         </main>
     )

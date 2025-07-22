@@ -5,6 +5,7 @@ import forms from "../styles/forms.module.css"
 import InputField from "../components/InputField"
 import TextArea from "../components/TextArea"
 import Button from "../components/Button"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 export default function RegisterPage() {
@@ -28,8 +29,8 @@ export default function RegisterPage() {
         router.push('/app')
     }
     return (
-        <main className="flex items-center justify-center">
-            <form onSubmit={createNewUser} className={`w-3/6 ${forms.formBox}`}>
+        <main>
+            <form onSubmit={createNewUser} className={`${forms.formBox}`}>
                 <h1 className="text-3xl">Welcome</h1>
                 <InputField label="Name" type="text" name="name" id="name" value={form.name} onChange={handleChange} maxLength={40} classname="w-96" />
                 <InputField label="Username" type="text" name="username" id="username" value={form.username} onChange={handleChange} maxLength={40} classname="w-96" />
@@ -37,8 +38,13 @@ export default function RegisterPage() {
                 <InputField label="Password" type="password" name="password" id="password" value={form.password} onChange={handleChange} maxLength={40} classname="w-96" />
                 <TextArea label="Bio" name="bio" id="bio" value={form.bio} onChange={handleChange} maxLength={40} classname="w-96 h-9/10" />
                 <section className="mt-2.5">
-                    <Button type="submit" classname={`pt-2.5 pb-2.5 pl-4 pr-4 rounded-xl ${forms.formBtn}`}>Register</Button>
+                    <Button type="submit" className={`pt-2.5 pb-2.5 pl-4 pr-4 rounded-xl ${forms.formBtn}`}>Register</Button>
                 </section>
+                <Link
+                    href="/login"
+                    className={`underline primary`}>
+                    Already have an account?
+                </Link>
             </form>
         </main>
     )

@@ -1,14 +1,13 @@
-
 .inputField {
     margin-top: 20px;
-    display: flex;
+    display: grid;
     gap: 20px;
     flex-direction: column;
     position: relative;
     max-height: 15rem;
 }
 
-.inputField > input, .inputField > textarea {
+.inputField>input, .inputField>textarea {
     margin-top: 25px;
     padding: 10px 20px 10px 8px;
     outline: none;
@@ -18,40 +17,64 @@
     resize: vertical;
 }
 
-.inputField > input:focus, .inputField > textarea:focus {
+.inputField>input:focus, .inputField>textarea:focus {
     box-shadow: 1px 1px 25px var(--color-red-200);
 }
 
-.inputField > label {
+.inputField>label {
     position: absolute;
     top: 0.5px;
     left: 5px;
 }
 
 .formBox {
-  min-height: 58vh;
-  max-height: auto;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-  background-color: var(--secondary);
-  box-shadow: 4px 6px 6px var(--accent);
-  color: var(--text);
-  padding: 2.5rem;
-  margin: 1rem;
-  min-width: 20px;
-  border-radius: 10%;
+    min-height: 58vh;
+    max-height: auto;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: var(--secondary);
+    box-shadow: 4px 6px 6px var(--accent);
+    color: var(--text);
+    padding: 2.5rem;
+    margin: 1rem;
+    min-width: 10rem;
+    max-width: 35rem;
+    border-radius: 20px;
+    justify-self: center;
 }
 
-.formBox > h1 {
-  font-family: "Delius", Arial, Helvetica, sans-serif;
+@media screen and (max-width: 568px) {
+    .formBox {
+        width: 25rem;
+        padding: 0.8rem;
+    }
+
+    .inputField > input, .inputField > textarea {
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 445px) {
+    .formBox {
+        width: 17rem;
+    }
+
+    .inputField > input, .inputField > textarea {
+        width: 10rem;
+    }
+}
+
+.formBox>h1 {
+    font-family: "Delius", Arial, Helvetica, sans-serif;
 }
 
 .formBtn {
     text-transform: uppercase;
     font-size: 1rem;
+    margin: 20px 0 50px;
 }
 
 .formBtn:hover {
