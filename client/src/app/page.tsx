@@ -12,7 +12,7 @@ export default function Home() {
         </section>
         <section>
           <Button classname={`pt-4 pb-4 pl-2 pr-2 rounded-xl w-44 main-btn`}>
-            <Link href='/login' className="text-5x1">Start Chatting</Link>
+            <Link href='/login'>Start Chatting</Link>
           </Button>
         </section>
       </main>

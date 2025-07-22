@@ -58,6 +58,9 @@ h1 {
 .main-btn {
     background-color: var(--color-pink-300);
     border: 2px solid var(--accent);
+    font-size: 1.3rem;
+    text-shadow: #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px,
+             #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px;
 }
 
 .main-btn:hover {
