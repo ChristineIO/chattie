@@ -1,11 +1,14 @@
 "use client"
-import { createUser, getUser } from "@/api/api"
-import React, { useEffect, useState } from "react"
+import { createUser } from "@/api/api"
+import React, { useState } from "react"
 import forms from "../styles/forms.module.css"
 import InputField from "../components/InputField"
 import TextArea from "../components/TextArea"
+import Button from "../components/Button"
+import { useRouter } from "next/navigation"
 
 export default function RegisterPage() {
+    let router = useRouter()
     let [form, setForm] = useState({
         name: "",
         username: "",
@@ -22,6 +25,7 @@ export default function RegisterPage() {
         e.preventDefault()
         let response = await createUser(form)
         console.log(response)
+        router.push('/app')
     }
     return (
         <main className="flex items-center justify-center">
@@ -31,10 +35,9 @@ export default function RegisterPage() {
                 <InputField label="Username" type="text" name="username" id="username" value={form.username} onChange={handleChange} maxLength={40} classname="w-96" />
                 <InputField label="Email" type="email" name="email" id="email" value={form.email} onChange={handleChange} maxLength={40} classname="w-96" />
                 <InputField label="Password" type="password" name="password" id="password" value={form.password} onChange={handleChange} maxLength={40} classname="w-96" />
-                <InputField label="Bio" type="text" name="bio" id="bio" value={form.bio} onChange={handleChange} maxLength={40} classname="w-96 h-9/10" />
                 <TextArea label="Bio" name="bio" id="bio" value={form.bio} onChange={handleChange} maxLength={40} classname="w-96 h-9/10" />
                 <section className="mt-2.5">
-                    <button type="submit" className={`pt-2.5 pb-2.5 pl-4 pr-4 rounded-xl${forms.formBtn}`}>Register</button>
+                    <Button type="submit" classname={`pt-2.5 pb-2.5 pl-4 pr-4 rounded-xl ${forms.formBtn}`}>Register</Button>
                 </section>
             </form>
         </main>

@@ -1,12 +1,15 @@
+import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+
 type ButtonProps = {
     classname: string;
+    type?: "submit" | "reset" | "button" | undefined;
     children?: React.ReactNode;
 };
 
-export default function Button({ classname, children }: ButtonProps) {
+export default function Button({ classname, type, children }: ButtonProps) {
     return (
         <>
-            <button className={classname}>{children}</button>
+            <button type={type} className={classname}>{children}</button>
         </>
     )
 }
