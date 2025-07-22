@@ -1,0 +1,44 @@
+
+.inputField {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    position: relative;
+}
+
+.inputField > input {
+    margin-top: 20px;
+    padding: 10px 20px 10px 8px;
+    outline: none;
+    border: 2px solid var(--secondary);
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.inputField > input:focus {
+    box-shadow: 1px 1px 25px var(--secondary);
+}
+
+.inputField > label {
+    position: absolute;
+    top: 0.5px;
+    left: 5px;
+}
+
+.formBox {
+  height: 55vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: var(--secondary);
+  color: var(--text);
+  padding: 2.25rem;
+  border-radius: 10%;
+}
+
+.formBox > h1 {
+  font-family: "Delius", Arial, Helvetica, sans-serif;
+}

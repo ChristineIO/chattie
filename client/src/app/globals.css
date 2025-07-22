@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+@import "tailwindcss";
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: #070613;
+        --background: #f8f8fc;
+        --primary: #403cc3;
+        --secondary: #e08fba;
+        --accent: #a03b78;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: #edecf9;
+        --background: #030307;
+        --primary: #403cc3;
+        --secondary: #701f4a;
+        --accent: #c45f9b;
+    }
+}
+
+body {
+    font-family: 'Delius', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: "Zain", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+}
+
+.main-title {
+    font-size: 7rem;
+}
+
+.main-page {
+    text-align: center;
+    justify-content: center;
+}
+
+.primary-bg {
+    background-color: var(--primary);
+}
+
+.secondary-bg {
+    background-color: var(--secondary);
+}
+
+.accent-bg {
+    background-color: var(--accent);
+}
+
+.primary {
+    color: var(--primary);
+}
+
+.secondary {
+    color: var(--secondary);
+}
+
+.accent {
+    color: var(--accent);
+}
