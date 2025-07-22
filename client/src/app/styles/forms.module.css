@@ -27,18 +27,31 @@
 }
 
 .formBox {
-  height: 55vh;
+  height: 58vh;
   display: grid;
   justify-items: center;
   align-items: center;
   text-align: center;
   flex-direction: column;
   background-color: var(--secondary);
+  box-shadow: 4px 6px 6px var(--accent);
   color: var(--text);
-  padding: 2.25rem;
+  padding: 2.5rem;
+  margin: 1rem;
   border-radius: 10%;
 }
 
 .formBox > h1 {
   font-family: "Delius", Arial, Helvetica, sans-serif;
+}
+
+.formBtn {
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.formBtn:hover {
+    cursor: pointer;
+    background-color: var(--button-hover-bg);
+    color: whitesmoke;
 }

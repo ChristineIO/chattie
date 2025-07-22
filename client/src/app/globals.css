@@ -3,26 +3,42 @@
 @import "tailwindcss";
 
 @media (prefers-color-scheme: light) {
-    :root {
-        --text: #070613;
-        --background: #f8f8fc;
-        --primary: #403cc3;
-        --secondary: #e08fba;
-        --accent: #a03b78;
-    }
+  :root {
+    --background: #F8F4FF;
+    --text: #1D1A31;
+    --title: var(--primary);
+
+    --primary: #3B5FFF;   /* Fantasy Blue */
+    --accent: #7A1122;    /* Deep Romantic Red */
+    --secondary: #FFB7D5; /* Aesthetic Pink */
+
+    --button-bg: transparent;
+    --button-border: var(--accent);
+    --button-hover-bg: var(--accent);
+    --button-hover-text: var(--background);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --text: #edecf9;
-        --background: #030307;
-        --primary: #403cc3;
-        --secondary: #701f4a;
-        --accent: #c45f9b;
-    }
+  :root {
+    --background: #0D0A1C;
+    --text: #EDEDED;
+    --title: var(--primary);
+
+    --primary: #3B5FFF;   /* Fantasy Blue */
+    --accent: #7A1122;    /* Deep Romantic Red */
+    --secondary: #ea80ac; /* Aesthetic Pink */
+
+    --button-bg: transparent;
+    --button-border: var(--accent);
+    --button-hover-bg: var(--accent);
+    --button-hover-text: var(--background);
+  }
 }
 
+
 body {
+    background-color: var(--background);
     font-family: 'Delius', Arial, Helvetica, sans-serif;
 }
 
@@ -34,6 +50,7 @@ h1 {
 
 .main-title {
     font-size: 7rem;
+    color: var(--title);
 }
 
 .main-page {

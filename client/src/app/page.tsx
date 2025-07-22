@@ -5,7 +5,7 @@ export default function Home() {
     <div className="">
       <main className="main-page ">
         <section className="mt-16">
-          <h1 className="main-title text-indigo-950">
+          <h1 className="main-title">
             Chattie
           </h1>
         </section>
