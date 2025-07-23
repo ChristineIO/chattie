@@ -8,7 +8,6 @@ import { compareUser } from "@/api/api"
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import InputFieldPassword from "../components/InputFieldPassword"
-import Eye from "../Icons/Eye"
 
 export default function LoginPage() {
     let router = useRouter()

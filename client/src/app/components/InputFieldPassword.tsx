@@ -1,7 +1,6 @@
-"use client"
 import { useState } from 'react'
-import Eye from '../Icons/Eye'
-import EyeSlash from '../Icons/EyeSlash'
+import Eye from '../icons/Eye'
+import EyeSlash from '../icons/EyeSlash'
 import forms from '../styles/forms.module.css'
 
 type InputFieldPasswordProps = {
