@@ -82,3 +82,13 @@
     background-color: var(--button-hover-bg);
     color: whitesmoke;
 }
+
+.inlineIcon, .inlineIcon > svg {
+  position: absolute;
+  top: 19px;
+  right: 9px;
+  z-index: 1;
+  border: none;
+  background-color: transparent;
+  width: 1.5rem;
+}

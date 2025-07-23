@@ -7,9 +7,27 @@ export interface UserData {
     password: string;
     bio: string;
 }
+export type CompareUser =  {
+    email: string,
+    password: string,
+}
+
 
 export async function getUser() {
     let response = await fetch(`${url}/api/users`)
+    let json = await response.json()
+    return json
+}
+
+export async function compareUser(user: CompareUser): Promise<any> {
+    let response = await fetch(`${url}/api/users/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user)
+    })
+
     let json = await response.json()
     return json
 }

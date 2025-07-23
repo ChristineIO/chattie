@@ -4,6 +4,13 @@ const saltRounds = 10
 let database = require('../connections/connect.js')
 let userRoutes = express.Router()
 
+// Get Users
+userRoutes.route('/api/users').get(async (req, res) => {
+    let db = database.getDb();
+    let data = await db.collection('users').find({}).toArray()
+    res.json(data)
+})
+
 // Create User
 userRoutes.route('/api/users').post(async (req, res) => {
     let db = database.getDb()
@@ -36,13 +43,8 @@ userRoutes.route('/api/users').post(async (req, res) => {
 })
 
 // Login - Compare request to dB
-userRoutes.route('/api/users').get(async (req, res) => {
+userRoutes.route('/api/users/login').post(async (req, res) => {
     let db = database.getDb()
-// 
-//     let userObject = {
-//         email: req.body.email,
-//         password: hash,
-//     }
 
     try {
         let data = await db.collection('users').findOne({ email: req.body.email })
