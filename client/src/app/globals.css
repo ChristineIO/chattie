@@ -2,6 +2,7 @@
 
 @import "tailwindcss";
 
+
 @media (prefers-color-scheme: light) {
   :root {
     --background: #F8F4FF;

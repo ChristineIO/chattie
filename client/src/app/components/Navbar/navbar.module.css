@@ -1,0 +1,14 @@
+.navBar {
+    background-color: var(--primary);
+    position: sticky;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+    font-family: "Zain", Arial, Helvetica, sans-serif;
+    font-size: 4rem;
+    color: var(--background);
+}
+
+body {
+    padding: 0;
+}
