@@ -10,7 +10,7 @@ export default function Home() {
           </h1>
         </section>
         <section>
-          <Link href='/login' className={`pt-6 pb-6 pl-4 pr-4 rounded-xl w-44 main-btn`}>Start Chatting</Link>
+          <Link href='/chat' className={`pt-6 pb-6 pl-4 pr-4 rounded-xl w-44 main-btn`}>Start Chatting</Link>
         </section>
       </main>
     </div>
