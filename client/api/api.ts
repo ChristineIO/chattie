@@ -19,6 +19,18 @@ export async function getUser() {
     return json
 }
 
+export async function createUser(user: UserData): Promise<any> {
+    let response = await fetch(`${url}/api/users`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+        credentials: "include"
+    })
+    return await response.json()
+}
+
 export async function compareUser(user: CompareUser): Promise<any> {
     let response = await fetch(`${url}/api/users/login`, {
         method: "POST",
@@ -33,14 +45,11 @@ export async function compareUser(user: CompareUser): Promise<any> {
     return json.token
 }
 
-export async function createUser(user: UserData): Promise<any> {
-    let response = await fetch(`${url}/api/users`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
+export async function authCheck() {
+    let response = await fetch(`${url}/api/users/auth`, {
         credentials: "include"
     })
-    return await response.json()
+
+    let json = await response.json()
+    return json
 }

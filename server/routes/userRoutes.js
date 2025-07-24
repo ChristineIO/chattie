@@ -70,4 +70,19 @@ userRoutes.route('/api/users/login').post(async (req, res) => {
     }
 })
 
+// Check for token
+userRoutes.route('/api/users/auth').get(async (req, res) => {
+    let token = req.cookies.token
+
+    try {
+        if (token) {
+            res.json({ message: "token exists", success: true, token })
+        } else {
+            res.json({ message: "no token", success: false })
+        }
+    } catch {
+        console.error('failed')
+    }
+})
+
 module.exports = userRoutes;
