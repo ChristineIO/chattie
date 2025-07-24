@@ -25,11 +25,12 @@ export async function compareUser(user: CompareUser): Promise<any> {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(user),
+        credentials: "include"
     })
 
     let json = await response.json()
-    return json
+    return json.token
 }
 
 export async function createUser(user: UserData): Promise<any> {
@@ -38,7 +39,8 @@ export async function createUser(user: UserData): Promise<any> {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(user),
+        credentials: "include"
     })
     return await response.json()
 }

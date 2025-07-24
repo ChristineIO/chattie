@@ -27,7 +27,7 @@ export default function RegisterPage() {
         e.preventDefault()
         let response = await createUser(form)
         console.log(response)
-        router.push('/app')
+        router.push('/chat')
     }
     return (
         <main>

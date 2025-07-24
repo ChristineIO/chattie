@@ -1,6 +1,10 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
 const saltRounds = 10
+const cookieAge = 24 * 60 * 60 * 10
+
 let database = require('../connections/connect.js')
 let userRoutes = express.Router()
 
@@ -36,6 +40,7 @@ userRoutes.route('/api/users').post(async (req, res) => {
         try {
             let data = await db.collection('users').insertOne(userObject)
             res.json({ message: 'success', data })
+
         } catch {
             console.error('failed')
         }
@@ -51,8 +56,13 @@ userRoutes.route('/api/users/login').post(async (req, res) => {
         if (data) {
             let compare = await bcrypt.compare(req.body.password, data.password)
             if (compare) {
-                console.log(compare)
-                res.json({ message: "matching credentials", success: true })
+                const token = jwt.sign(data, process.env.SECRET_KEY, { expiresIn: "12h" })
+                res.cookie('token', token, {
+                    httpOnly: true,
+                    maxAge: cookieAge,
+                    path: "/"
+                })
+                res.json({ message: "matching credentials", success: true, token })
             }
         }
     } catch {

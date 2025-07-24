@@ -29,11 +29,11 @@ export default function LoginPage() {
             password: formPassword
         }
         let response = await compareUser(formObject)
-        console.log(response.success)
-        if (response.success) {
-            router.push('/app')
-        } else {
+        console.log(response)
+        if (!response) {
             alert('Try again or create an account!')
+        } else {
+            router.push('/chat')
         }
     }
 

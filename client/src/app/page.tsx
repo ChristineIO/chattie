@@ -11,9 +11,7 @@ export default function Home() {
           </h1>
         </section>
         <section>
-          <Button className={`pt-4 pb-4 pl-2 pr-2 rounded-xl w-44 main-btn`}>
-            <Link href='/login'>Start Chatting</Link>
-          </Button>
+          <Link href='/login' className={`pt-6 pb-6 pl-4 pr-4 rounded-xl w-44 main-btn`}>Start Chatting</Link>
         </section>
       </main>
     </div>
