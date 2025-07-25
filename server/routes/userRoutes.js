@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken')
 const saltRounds = 10
 const cookieAge = 24 * 60 * 60 * 10
 
+let cookies = require('cookie-parser')
+
 let database = require('../connections/connect.js')
 let userRoutes = express.Router()
 
@@ -59,6 +61,8 @@ userRoutes.route('/api/users/login').post(async (req, res) => {
                 const token = jwt.sign(data, process.env.SECRET_KEY, { expiresIn: "12h" })
                 res.cookie('token', token, {
                     httpOnly: true,
+                    secure: false,
+                    sameSite: "lax",
                     maxAge: cookieAge,
                     path: "/"
                 })
@@ -76,8 +80,12 @@ userRoutes.route('/api/users/auth').get(async (req, res) => {
 
     try {
         if (token) {
+
+            console.log("here os " + token)
             res.json({ message: "token exists", success: true, token })
         } else {
+
+            console.log(token)
             res.json({ message: "no token", success: false })
         }
     } catch {

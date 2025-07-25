@@ -47,9 +47,10 @@ export async function compareUser(user: CompareUser): Promise<any> {
 
 export async function authCheck() {
     let response = await fetch(`${url}/api/users/auth`, {
+        method: "GET",
         credentials: "include"
     })
 
     let json = await response.json()
-    return json
+    return json.success
 }
