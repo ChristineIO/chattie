@@ -41,7 +41,15 @@ userRoutes.route('/api/users').post(async (req, res) => {
 
         try {
             let data = await db.collection('users').insertOne(userObject)
-            res.json({ message: 'success', data })
+            const token = jwt.sign(data, process.env.SECRET_KEY, { expiresIn: "12h" })
+            res.cookie('token', token, {
+                httpOnly: true,
+                secure: false,
+                sameSite: "lax",
+                maxAge: cookieAge,
+                path: "/"
+            })
+            res.json({ message: "matching credentials", success: true, data, token })
 
         } catch {
             console.error('failed')
@@ -80,12 +88,8 @@ userRoutes.route('/api/users/auth').get(async (req, res) => {
 
     try {
         if (token) {
-
-            console.log("here os " + token)
             res.json({ message: "token exists", success: true, token })
         } else {
-
-            console.log(token)
             res.json({ message: "no token", success: false })
         }
     } catch {
