@@ -1,10 +1,9 @@
-import Link from "next/link"
-import navbar from "./navbar.module.css"
+import HomeLink from "../HomeLink"
 
 export default function Navbar() {
     return (
-        <main>
-            <section className={navbar.navBar}><Link href="/">Chattie</Link></section>
-        </main>
+        <div className="h-14 bg-[#503c75] text-white flex items-center px-6 border-b border-pink-300/30 shadow-sm">
+            <HomeLink />
+        </div>
     )
 }

@@ -6,7 +6,7 @@
     text-align: center;
     font-family: "Zain", Arial, Helvetica, sans-serif;
     font-size: 4rem;
-    color: var(--background);
+    color: var(--text);
     border-bottom: 2px solid var(--secondary);
 }
 
