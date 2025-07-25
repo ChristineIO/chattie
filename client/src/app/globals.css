@@ -42,6 +42,7 @@ body {
     margin: 0;
     background-color: var(--background);
     font-family: 'Delius', Arial, Helvetica, sans-serif;
+    color: var(--text);
 }
 
 h1 {

@@ -5,8 +5,6 @@ const jwt = require('jsonwebtoken')
 const saltRounds = 10
 const cookieAge = 24 * 60 * 60 * 10
 
-let cookies = require('cookie-parser')
-
 let database = require('../connections/connect.js')
 let userRoutes = express.Router()
 
@@ -46,7 +44,7 @@ userRoutes.route('/api/users').post(async (req, res) => {
                 httpOnly: true,
                 secure: false,
                 sameSite: "lax",
-                maxAge: cookieAge,
+                maxAge: 864000,
                 path: "/"
             })
             res.json({ message: "matching credentials", success: true, data, token })
@@ -71,7 +69,7 @@ userRoutes.route('/api/users/login').post(async (req, res) => {
                     httpOnly: true,
                     secure: false,
                     sameSite: "lax",
-                    maxAge: cookieAge,
+                    maxAge: 864000,
                     path: "/"
                 })
                 res.json({ message: "matching credentials", success: true, token })
