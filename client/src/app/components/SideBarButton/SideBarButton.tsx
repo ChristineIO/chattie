@@ -1,9 +1,13 @@
 import PeopleNearby from '../../icons/PeopleNearby'
 import sidebarbtn from './sideBarButton.module.css'
 
-const SideBarButton = () => {
+type SideBarBtnProps = {
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const SideBarButton = ({onClick}:SideBarBtnProps) => {
     return (
-        <button className={`text-white font-bold text-md cursor-pointer  mt-20 rounded-md w-3/5 ${sidebarbtn.button}`}>
+        <button className={`text-white font-bold text-md cursor-pointer  mt-20 rounded-md w-3/5 ${sidebarbtn.button}`} onClick={onClick}>
             <PeopleNearby className={`mr-2 ${sidebarbtn.icon}`} /> <p>     Friends </p>
         </button>
     )
