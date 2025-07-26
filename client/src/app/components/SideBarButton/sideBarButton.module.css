@@ -7,10 +7,24 @@
     gap: 1rem;
     text-align: center;
     justify-self:center;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 472px) {
+    .button {
+        width: 140px;
+    }
 }
 
 .button p {
     display: flex;
     gap: 1rem;
     text-align: center;
+}
+
+.icon {
+    min-width: calc(var(--spacing) * 8);
+    min-height: calc(var(--spacing) * 8);
+    max-width: calc(var(--spacing) * 8);
+    max-height: calc(var(--spacing) * 8);
 }

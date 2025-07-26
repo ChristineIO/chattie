@@ -1,0 +1,11 @@
+.body {
+    max-width: 800px;
+    min-width: 50px;
+
+}
+
+@media screen and (max-width: 345px) {
+    .body {
+        padding-right: 0px;
+    }
+}
