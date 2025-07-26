@@ -1,0 +1,16 @@
+.button {
+    display: flex;
+    background-color: var(--secondary);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 1rem;
+    text-align: center;
+    justify-self:center;
+}
+
+.button p {
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+}
