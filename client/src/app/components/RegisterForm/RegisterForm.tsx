@@ -34,10 +34,10 @@ export default function RegisterForm() {
         <main>
             <form onSubmit={createNewUser} className={`${forms.formBox}`}>
                 <h1 className="text-3xl">Welcome</h1>
-                <InputField label="Name" type="text" name="name" id="name" value={form.name} onChange={handleChange} maxLength={40} classname="w-96" />
-                <InputField label="Username" type="text" name="username" id="username" value={form.username} onChange={handleChange} maxLength={40} classname="w-96" />
-                <InputField label="Email" type="email" name="email" id="email" value={form.email} onChange={handleChange} maxLength={40} classname="w-96" />
-                <InputFieldPassword label="Password" type="password" name="password" id="password" value={form.password} onChange={handleChange} maxLength={40} classname="w-96" />
+                <InputField label="Name" type="text" name="name" id="name" value={form.name} onChange={handleChange} maxLength={19} classname="w-96" />
+                <InputField label="Username" type="text" name="username" id="username" value={form.username} onChange={handleChange} maxLength={16} classname="w-96" />
+                <InputField label="Email" type="email" name="email" id="email" value={form.email} onChange={handleChange} maxLength={254} classname="w-96" />
+                <InputFieldPassword label="Password" type="password" name="password" id="password" value={form.password} onChange={handleChange} maxLength={64} classname="w-96" />
                 <TextArea label="Bio" name="bio" id="bio" value={form.bio} onChange={handleChange} maxLength={40} classname="w-96 h-9/10" />
                 <section className="mt-2.5">
                     <Button type="submit" className={`pt-2.5 pb-2.5 pl-4 pr-4 rounded-xl ${forms.formBtn}`}>Register</Button>

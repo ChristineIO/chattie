@@ -8,7 +8,7 @@ type PersonProps = {
 
 const Person = ({ background, className, fill, width, height }: PersonProps) => {
   if (fill === "") {
-    fill = "#6e3a3a"
+    fill = "#c5b0b0"
   }
   width = height = 100
   return (
@@ -19,7 +19,7 @@ const Person = ({ background, className, fill, width, height }: PersonProps) => 
       width={width}
       height={height}
       fill={fill}
-      stroke="#6e3a3a"
+      stroke={fill}
       viewBox="0 0 512 512"
       className={className}
     >

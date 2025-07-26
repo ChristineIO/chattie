@@ -15,7 +15,7 @@ type InputFieldPasswordProps = {
     maxLength?: number;
 }
 
-export default function InputFieldPassword({ label, name, type, onChange, maxLength }: InputFieldPasswordProps) {
+export default function InputFieldPassword({ label, name, type, onChange, maxLength, id, value, classname }: InputFieldPasswordProps) {
     const [isVisible, setIsVisible] = useState(false)
     if (isVisible) {
         type = 'text'
@@ -24,7 +24,7 @@ export default function InputFieldPassword({ label, name, type, onChange, maxLen
         <>
             <div className={forms.inputField}>
                 <label htmlFor={name}>{label}</label>
-                <input name={name} type={type} onChange={onChange} maxLength={maxLength} required autoComplete='true' />
+                <input name={name} type={type} onChange={onChange} maxLength={maxLength} required autoComplete='true' id={id} value={value} className={classname} />
                 <button type='button' className={forms.inlineIcon}
                     onClick={() => setIsVisible(!isVisible)}>
                     {isVisible ? <EyeSlash /> : <Eye />}</button>

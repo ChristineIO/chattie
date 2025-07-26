@@ -7,7 +7,7 @@
     max-height: 15rem;
 }
 
-.inputField>input, .inputField>textarea {
+.inputField >input, .inputField > textarea {
     margin-top: 25px;
     padding: 10px 20px 10px 8px;
     outline: none;

@@ -34,7 +34,8 @@ userRoutes.route('/api/users').post(async (req, res) => {
             email: req.body.email,
             password: hash,
             bio: req.body.bio,
-            createdAt: new Date()
+            createdAt: new Date(),
+            friends: []
         }
 
         try {

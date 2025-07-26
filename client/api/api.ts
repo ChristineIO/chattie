@@ -13,7 +13,7 @@ export type CompareUser =  {
 }
 
 
-export async function getUser() {
+export async function getUsers() {
     let response = await fetch(`${url}/api/users`)
     let json = await response.json()
     return json
@@ -52,5 +52,5 @@ export async function authCheck() {
     })
 
     let json = await response.json()
-    return json.success
+    return json
 }
