@@ -6,6 +6,7 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
 const mongoose = require('mongoose')
+const chatRoutes = require("./routes/chatRoutes.js")
 const mongo_url = process.env.MONGO_URL
 const client_url = process.env.CLIENT_URL
 const port = process.env.PORT || 5000
@@ -25,6 +26,7 @@ app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/', userRoutes)
+app.use('/', chatRoutes)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
