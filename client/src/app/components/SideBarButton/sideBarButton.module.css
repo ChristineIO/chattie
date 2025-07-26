@@ -1,6 +1,6 @@
 .button {
     display: flex;
-    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
     justify-content: center;
     align-items: center;
     padding: 10px;

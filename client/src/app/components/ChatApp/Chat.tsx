@@ -5,7 +5,7 @@ import ChatBody from "../ChatBody/ChatBody"
 import Navbar from "../Navbar/Navbar"
 import SideBar from "../SideBar/SideBar"
 import SideBarButton from "../SideBarButton/SideBarButton"
-import FriendList from "../FriendList/FriendList"
+import FriendSection from "../FriendSection/FriendSection"
 
 export default function Chat() {
     let [friendList, setFriendList] = useState(false)
@@ -26,7 +26,7 @@ export default function Chat() {
                 <Navbar />
 
                 {/* Chat Body */}
-                <ChatBody children={friendList ? <FriendList /> : <div className="text-gray-400 text-center mt-20">Start chatting...</div>} />
+                <ChatBody children={friendList ? <FriendSection /> : <div className="text-gray-400 text-center mt-20">Start chatting...</div>} />
 
             </main>
         </div>

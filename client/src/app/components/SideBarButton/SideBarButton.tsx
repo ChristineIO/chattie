@@ -8,7 +8,7 @@ type SideBarBtnProps = {
 const SideBarButton = ({onClick}:SideBarBtnProps) => {
     return (
         <button className={`text-white font-bold text-md cursor-pointer  mt-20 rounded-md w-3/5 ${sidebarbtn.button}`} onClick={onClick}>
-            <PeopleNearby className={`mr-2 ${sidebarbtn.icon}`} /> <p>     Friends </p>
+            <PeopleNearby className={`mr-2 ${sidebarbtn.icon}`} fill='#FDEFF4' /> <p>     Friends </p>
         </button>
     )
 }

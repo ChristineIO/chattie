@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 const saltRounds = 10
-const cookieAge = 24 * 60 * 60 * 10
+const cookieAge = 24 * 60 * 60 * 1000
 
 let database = require('../connections/connect.js')
 let userRoutes = express.Router()
@@ -69,7 +69,7 @@ userRoutes.route('/api/users/login').post(async (req, res) => {
                     httpOnly: true,
                     secure: false,
                     sameSite: "lax",
-                    maxAge: 864000,
+                    maxAge:  cookieAge,
                     path: "/"
                 })
                 res.json({ message: "matching credentials", success: true, token })
