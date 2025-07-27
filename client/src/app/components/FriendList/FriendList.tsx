@@ -5,6 +5,7 @@ import { getChatThread, getUsers, authCheck } from '@/api/api'
 import Link from 'next/link'
 import { CustomJwtPayload } from '@/api/types'
 import { jwtDecode } from 'jwt-decode'
+import { useRouter } from 'next/navigation'
 
 type User = {
     _id: string;
@@ -15,15 +16,15 @@ type User = {
 
 const FriendList = () => {
 
+    const router = useRouter()
+    
+
     // set your friend list
     const [friends, setFriends] = useState<User[]>([])
 
     // get your name based on token
 
     const [name, setName] = useState("")
-
-    // the id of the friend you want to talk to
-    let friendId = ""
 
 
     useEffect(() => {
@@ -43,22 +44,13 @@ const FriendList = () => {
         Friends()
     }, [])
 
-    // thread object to post
-    let threadObject = {
-        userId: name,
-        otherUserId: friendId
-    }
-
     // get or create message thread 
     async function getThread(e:React.MouseEvent<HTMLAnchorElement>) {
-        e.preventDefault(); // optional if you don’t want it to navigate
+        e.preventDefault();
         const clickedId = e.currentTarget.id;
-        console.log('Clicked anchor ID:', clickedId);
-        
-        friendId = clickedId
-        console.log(threadObject);
+
         let users = await getChatThread({userId: name, otherUserId: clickedId})
-        console.log(users)
+        console.log(users.message)
     }
     return (
 

@@ -1,0 +1,38 @@
+.chatInputBody{
+    display: flex;
+}
+
+.inputDiv {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 12px;
+  max-width: 50rem;
+  min-width: 10rem;
+  bottom: 15;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+}
+
+.inputDiv > input{
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 1rem;
+  color: #dcddde; /* Light gray text */
+  background-color: #40444b; /* Input background */
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  justify-self: center;
+}
+
+.inputDiv input::placeholder {
+  color: #72767d; /* Placeholder color similar to Discord */
+}
+
+.inputDiv input:focus {
+  background-color: #484c52;
+  border: 1.55px solid #2d3475; /* Discord blurple */
+}
