@@ -1,3 +1,16 @@
 .chat {
-    background-color: var(--background);
+    text-align: left;
+}
+
+.messagesSection{
+    padding: 20px;
+}
+
+.message {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+.message::before {
+    border: 0.25px solid var(--accent);
 }

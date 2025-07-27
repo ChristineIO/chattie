@@ -1,14 +1,9 @@
-import ChatBubble from "../../components/ChatBubble/ChatBubble"
-import ChatInput from "../../components/ChatInput/ChatInput"
-import chatBody from "../../components/ChatBody/chatBody.module.css"
+import Thread from "../../components/Threads/Thread"
 
-export default function Thread() {
+const ThreadApp = () => {
     return (
-        <div className={`${chatBody.bg}`}>
-            ff
-            <ChatBubble />
-            <ChatBubble />
-            <ChatInput />
-        </div>
+        <Thread />
     )
 }
+
+export default ThreadApp
