@@ -1,9 +1,13 @@
-import Link from "next/link";
+import Link from "next/link"
 
-export default function HomeLink() {
+type HomeLinkProps = {
+    className?: string;
+}
+
+export default function HomeLink({className}:HomeLinkProps) {
     return (
         <h1 className="text-2xl font-semibold">
-            <Link href="/">Chattie</Link>
+            <Link href="/" className={className}>Chattie</Link>
         </h1>
     )
 }

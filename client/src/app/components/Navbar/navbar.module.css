@@ -1,13 +1,9 @@
-.navBar {
-    background-color: var(--primary);
-    position: sticky;
-    margin: 0;
-    padding: 2px;
-    text-align: center;
-    font-family: "Zain", Arial, Helvetica, sans-serif;
-    font-size: 4rem;
-    color: var(--text);
-    border-bottom: 2px solid var(--secondary);
+.navBar section{
+    display: flex;
+    float: right;
+    align-content: center;
+    justify-items: center;
+    margin-left: auto;
 }
 
 body {
