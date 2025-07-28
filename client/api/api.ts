@@ -93,12 +93,11 @@ export async function getChatThread(participant: Participants) {
 // GET CHAT THREAD ONLY
 
 export async function  getOneThread(id:ID) {
-    let response = await fetch(`${url}/api/chats/threads/:id`, {
+    let response = await fetch(`${url}/api/chats/threads/${id}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(id)
     })
     
     let json = await response.json()

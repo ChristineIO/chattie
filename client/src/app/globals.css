@@ -1,9 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
 
-@import "tailwindcss";
-@plugin "daisyui";
+:root {
+    --primary: #674882;
+    /* Fantasy Blue */
+    --accent: #7A1122;
+    /* Deep Romantic Red */
+    --secondary: #FFB7D5;
+    /* Aesthetic Pink */
 
-:root[data-theme="light"] {
+    --background: #F8F4FF;
+    --text: #1D1A31;
+    --title: var(--primary);
+
+    --button-bg: transparent;
+    --button-border: var(--accent);
+    --button-hover-bg: var(--accent);
+    --button-hover-text: var(--background);
+}   
+
+[data-theme="light"] {
     --background: #F8F4FF;
     --text: #1D1A31;
     --title: var(--primary);
@@ -22,7 +37,7 @@
 }
 
 
-:root[data-theme="dark"] {
+[data-theme="dark"] {
     --background: #0D0A1C;
     --text: #EDEDED;
     --title: var(--primary);
@@ -40,6 +55,9 @@
     --button-hover-text: var(--background);
 }
 
+
+@import "tailwindcss";
+@plugin "daisyui";
 
 body, html {
     margin: 0;

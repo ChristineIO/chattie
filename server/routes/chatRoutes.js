@@ -11,7 +11,7 @@ chatRoutes.route('/api/chats/threads').post(async (req, res) => {
     let chats = await db.collection("chat_threads").find({ participants: { $all: [req.body.userId, req.body.otherUserId] } }).toArray()
     try {
         if (chats.length > 0) {
-            res.json({ message: "exists" })
+            res.json({ message: "exists", success: true, data: chats[0] })
         } else {
             let chatObject = {
                 participants: [req.body.userId, req.body.otherUserId],
@@ -26,7 +26,7 @@ chatRoutes.route('/api/chats/threads').post(async (req, res) => {
     }
 })
 
-// Get or Create Threads
+// Get The Threads
 chatRoutes.route('/api/chats/threads/:id').get(async (req, res) => {
     let db = database.getDb()
     const query = {

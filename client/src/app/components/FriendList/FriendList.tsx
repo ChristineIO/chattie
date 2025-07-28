@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Person from '../../icons/Person'
 import friendList from './friendList.module.css'
-import { getChatThread, getUsers, authCheck } from '@/api/api'
+import { getChatThread, getUsers, authCheck, getOneThread } from '@/api/api'
 import Link from 'next/link'
 import { CustomJwtPayload } from '@/api/types'
 import { jwtDecode } from 'jwt-decode'
@@ -17,7 +17,7 @@ type User = {
 const FriendList = () => {
 
     const router = useRouter()
-    
+
 
     // set your friend list
     const [friends, setFriends] = useState<User[]>([])
@@ -45,12 +45,19 @@ const FriendList = () => {
     }, [])
 
     // get or create message thread 
-    async function getThread(e:React.MouseEvent<HTMLAnchorElement>) {
+    async function getThread(e: React.MouseEvent<HTMLAnchorElement>) {
         e.preventDefault();
         const clickedId = e.currentTarget.id;
 
-        let users = await getChatThread({userId: name, otherUserId: clickedId})
-        console.log(users)
+        let users = await getChatThread({ userId: name, otherUserId: clickedId })
+        console.log(users.data._id);
+
+        let threadId = users.data._id
+
+        if (users.message === "exists") {
+            let thread = await getOneThread(threadId)
+            console.log(thread);
+        }
     }
     return (
 
