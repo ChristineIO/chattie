@@ -3,38 +3,41 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-@media (prefers-color-scheme: light) {
-  :root {
+:root[data-theme="light"] {
     --background: #F8F4FF;
     --text: #1D1A31;
     --title: var(--primary);
 
-    --primary: #7E6A9B ;   /* Fantasy Blue */
-    --accent: #7A1122;    /* Deep Romantic Red */
-    --secondary: #FFB7D5; /* Aesthetic Pink */
+    --primary: #7E6A9B;
+    /* Fantasy Blue */
+    --accent: #7A1122;
+    /* Deep Romantic Red */
+    --secondary: #FFB7D5;
+    /* Aesthetic Pink */
 
     --button-bg: transparent;
     --button-border: var(--accent);
     --button-hover-bg: var(--accent);
     --button-hover-text: var(--background);
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+
+:root[data-theme="dark"] {
     --background: #0D0A1C;
     --text: #EDEDED;
     --title: var(--primary);
 
-    --primary: #674882 ;  /* Fantasy Blue */
-    --accent: #7A1122;    /* Deep Romantic Red */
-    --secondary: #ea80ac; /* Aesthetic Pink */
+    --primary: #674882;
+    /* Fantasy Blue */
+    --accent: #7A1122;
+    /* Deep Romantic Red */
+    --secondary: #ea80ac;
+    /* Aesthetic Pink */
 
     --button-bg: transparent;
     --button-border: var(--accent);
     --button-hover-bg: var(--accent);
     --button-hover-text: var(--background);
-  }
 }
 
 
@@ -66,8 +69,8 @@ input {
     background-color: var(--color-pink-300);
     border: 2px solid var(--accent);
     font-size: 1.3rem;
-    text-shadow: #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px,
-             #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px;
+    text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
+        #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
 }
 
 .main-btn:hover {

@@ -18,7 +18,7 @@ export default function Chat() {
     }
     return (
         <div className="flex h-screen bg-[#0e0d1a]">
-            <SideBar button={<SideBarButton onClick={toggle} />} />
+            {/* <SideBar button={<SideBarButton onClick={toggle} />} /> */}
 
             {/* Main Chat Area */}
             <main className="flex-1 flex flex-col">
