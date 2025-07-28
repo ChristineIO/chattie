@@ -50,13 +50,14 @@ const FriendList = () => {
         const clickedId = e.currentTarget.id;
 
         let users = await getChatThread({ userId: name, otherUserId: clickedId })
-        console.log(users.data._id);
 
         let threadId = users.data._id
 
         if (users.message === "exists") {
             let thread = await getOneThread(threadId)
-            console.log(thread);
+            let messages = thread.messages
+            console.log(messages);
+            console.log(thread.messages);
         }
     }
     return (

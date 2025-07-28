@@ -101,5 +101,16 @@ export async function  getOneThread(id:ID) {
     })
     
     let json = await response.json()
+    return json.chats
+}
+
+export async function getThreadMessages(id: ID) {
+    let response = await fetch(`${url}/api/chats/messages/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    })
+    let json = await response.json()
     return json
 }
