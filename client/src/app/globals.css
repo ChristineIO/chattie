@@ -38,7 +38,7 @@
 }
 
 
-body {
+body, html {
     margin: 0;
     background-color: var(--background);
     font-family: 'Delius', Arial, Helvetica, sans-serif;
@@ -50,6 +50,10 @@ h1 {
     font-family: "Zain", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
+}
+
+input {
+    background-color: inherit;
 }
 
 .main-title {

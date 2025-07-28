@@ -34,7 +34,7 @@
 }
 
 .inputDiv input:focus {
-  background-color: #484c52;
+  /* background-color: #484c52; */
   border: 1.55px solid #2d3475; /* Discord blurple */
 }
 

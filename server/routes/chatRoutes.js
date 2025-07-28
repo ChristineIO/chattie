@@ -51,7 +51,7 @@ chatRoutes.route('/api/chats/threads/:id').post(async (req, res) => {
 
 
     let chats = await db.collection("chat_threads").findOne(query)
-console.log(req.params.id);
+    console.log(req.params.id);
 
     try {
         if (chats) {
@@ -66,13 +66,13 @@ console.log(req.params.id);
                 reactions: [],
                 attachments: []
             }
-            let data = await db.collection("chat_threads").updateOne({ _id: query._id},
+            let data = await db.collection("chat_threads").updateOne({ _id: query._id },
                 { $push: { messages: messageObject } })
             if (data.modifiedCount > 0) {
                 res.json({ data, chats })
             } else {
                 console.log(query._id);
-                
+
                 res.json({ success: false })
             }
         }

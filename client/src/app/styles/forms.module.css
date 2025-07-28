@@ -19,6 +19,7 @@
 
 .inputField>input:focus, .inputField>textarea:focus {
     box-shadow: 1px 1px 25px var(--color-red-200);
+    background-color: aliceblue !important;
 }
 
 .inputField>label {

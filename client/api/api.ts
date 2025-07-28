@@ -15,6 +15,10 @@ export type Participants =  {
     userId: string,
     otherUserId: string,
 }
+export type ID =  {
+    id: string;
+}
+
 
 
 // USERS:
@@ -70,9 +74,9 @@ export async function authCheck() {
 
 // CHAT THREADS:
 
+
+
 // CREATE CHAT THREAD OR CHECK FOR EXISTENCE
-
-
 export async function getChatThread(participant: Participants) {
         let response = await fetch(`${url}/api/chats/threads`, {
         method: "POST",
@@ -82,6 +86,21 @@ export async function getChatThread(participant: Participants) {
         body: JSON.stringify(participant)
     })
 
+    let json = await response.json()
+    return json
+}
+
+// GET CHAT THREAD ONLY
+
+export async function  getOneThread(id:ID) {
+    let response = await fetch(`${url}/api/chats/threads/:id`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(id)
+    })
+    
     let json = await response.json()
     return json
 }

@@ -21,6 +21,7 @@ const ProfileTab = ({ }: ProfileTabProps) => {
         async function getUserData() {
             let user = await authCheck()
             const token = user.token
+            
             const decode_user = jwtDecode<CustomJwtPayload>(token.toString())
             
             setName(decode_user.name)
