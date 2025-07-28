@@ -17,6 +17,7 @@ type User = {
 const FriendList = () => {
 
     const router = useRouter()
+    let [id, setID] = useState("")
 
 
     // set your friend list
@@ -56,8 +57,8 @@ const FriendList = () => {
         if (users.message === "exists") {
             let thread = await getOneThread(threadId)
             let messages = thread.messages
-            console.log(messages);
-            console.log(thread.messages);
+            let id = thread._id
+            setID(id)
         }
     }
     return (
@@ -67,7 +68,7 @@ const FriendList = () => {
             {friends.map((friend) => (
                 <div key={friend._id}>
                     <li>
-                        <Link href={`/chat/${friend._id}`} className={`${friendList.info}`} id={friend._id} onClick={getThread}>
+                        <Link href={`/chat/thread/${id}`} className={`${friendList.info}`} id={friend._id} onClick={getThread}>
                             <span><Person className={`fill-pink-200`} /></span>
                             <h1>{friend.username}</h1>
                         </Link>

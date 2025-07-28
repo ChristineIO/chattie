@@ -92,7 +92,7 @@ export async function getChatThread(participant: Participants) {
 
 // GET CHAT THREAD ONLY
 
-export async function  getOneThread(id:ID) {
+export async function  getOneThread(id:string) {
     let response = await fetch(`${url}/api/chats/threads/${id}`, {
         method: "GET",
         headers: {
@@ -104,7 +104,7 @@ export async function  getOneThread(id:ID) {
     return json.chats
 }
 
-export async function getThreadMessages(id: ID) {
+export async function getThreadMessages(id: string) {
     let response = await fetch(`${url}/api/chats/messages/${id}`, {
         method: "GET",
         headers: {
