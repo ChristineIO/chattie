@@ -44,8 +44,8 @@ chatRoutes.route('/api/chats/threads/:id').get(async (req, res) => {
     }
 })
 
-// Post to Threads
-chatRoutes.route('/api/chats/threads/:id').post(async (req, res) => {
+// Post to Thread
+chatRoutes.route('/api/chats/threads/message/:id').post(async (req, res) => {
     let db = database.getDb()
     const query = { _id: new ObjectId(req.params.id) };
 
@@ -57,7 +57,7 @@ chatRoutes.route('/api/chats/threads/:id').post(async (req, res) => {
         if (chats) {
             let messageObject = {
                 _id: new ObjectId(),
-                content: req.body.message || "message",
+                content: req.body.content || "hi",
                 sender: req.body.sender || "unknown",
                 timestamp: new Date(),
                 chatId: query._id,
@@ -75,7 +75,7 @@ chatRoutes.route('/api/chats/threads/:id').post(async (req, res) => {
             let data = await db.collection("chat_threads").updateOne({ _id: query._id },
                 { $push: { messages: messageObject } })
             if (data.modifiedCount > 0) {
-                res.json({ data, chats })
+                res.json({ data, chats, success: true })
             } else {
                 console.log(query._id);
 
@@ -83,7 +83,7 @@ chatRoutes.route('/api/chats/threads/:id').post(async (req, res) => {
             }
         }
     } catch {
-        console.error("failed")
+        console.error("failed to post message")
     }
 })
 

@@ -18,8 +18,11 @@ export type Participants =  {
 export type ID =  {
     id: string;
 }
-
-
+export type Message = {
+    _id?: string;
+    content: string;
+    sender: string;
+}
 
 // USERS:
 
@@ -110,6 +113,19 @@ export async function getThreadMessages(id: string) {
         headers: {
             "Content-Type": "application/json"
         },
+    })
+    let json = await response.json()
+    return json
+}
+
+// POST MESSAGE TO THREAD
+export async function postMessageToThread(message : Message) {
+    let response = await fetch(`${url}/api/chats/threads/message/${message._id}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(message),
     })
     let json = await response.json()
     return json
