@@ -44,32 +44,6 @@ chatRoutes.route('/api/chats/threads/:id').get(async (req, res) => {
     }
 })
 
-// Get Threads
-chatRoutes.route('/api/chats/threads/:id/messages').get(async (req, res) => {
-    let db = database.getDb()
-    const query = { _id: new ObjectId(req.params.id) };
-
-
-    let chats = await db.collection("chat_threads").findOne(query)
-    console.log(req.params.id);
-
-    try {
-        if (chats) {
-            let data = await db.collection("chat_threads").findAll({ _id: query._id },
-                { $push: { messages: messageObject } })
-            if (data.modifiedCount > 0) {
-                res.json({ data, chats })
-            } else {
-                console.log(query._id);
-
-                res.json({ success: false })
-            }
-        }
-    } catch {
-        console.error("failed")
-    }
-})
-
 // Post to Threads
 chatRoutes.route('/api/chats/threads/:id').post(async (req, res) => {
     let db = database.getDb()
@@ -83,14 +57,20 @@ chatRoutes.route('/api/chats/threads/:id').post(async (req, res) => {
         if (chats) {
             let messageObject = {
                 _id: new ObjectId(),
-                content: req.body.message,
-                sender: req.body.sender,
+                content: req.body.message || "message",
+                sender: req.body.sender || "unknown",
                 timestamp: new Date(),
                 chatId: query._id,
                 edited: false,
                 deleted: false,
                 reactions: [],
-                attachments: []
+                attachments: [],
+                replyTo: req.body.replyTo || null,
+                reactionsSummary: {
+                    like: [],
+                    heart: [],
+                    laugh: [],
+                }
             }
             let data = await db.collection("chat_threads").updateOne({ _id: query._id },
                 { $push: { messages: messageObject } })
