@@ -47,8 +47,8 @@ const FriendList = () => {
 
     // get or create message thread 
     async function getThread(e: React.MouseEvent<HTMLAnchorElement>) {
-        e.preventDefault();
-        const clickedId = e.currentTarget.id;
+        e.preventDefault()
+        const clickedId = e.currentTarget.id
 
         let users = await getChatThread({ userId: name, otherUserId: clickedId })
 
@@ -59,6 +59,7 @@ const FriendList = () => {
             let messages = thread.messages
             let id = thread._id
             setID(id)
+            router.push(`/chat/thread/${id}`)
         }
     }
     return (

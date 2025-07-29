@@ -43,10 +43,12 @@
   margin-right: 1rem;
   position: fixed;
   cursor: pointer;
-  transition: transform .5s ease-in-out ;
-  
 }
 
-.icon:hover {
+.animate {
+  transition: transform .5s ease-in-out ;
+}
+
+.animate:hover {
   transform: scale(1.15);
 }
