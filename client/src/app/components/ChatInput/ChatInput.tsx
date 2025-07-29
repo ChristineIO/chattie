@@ -4,11 +4,18 @@ import InputFieldIcon from "../InputFieldIcon"
 import chatInput from "./chatInput.module.css"
 
 const ChatInput = () => {
-    let [iconClassname, setIconClassname] = useState(`${chatInput.icon} ${chatInput.animate}`)
+    let value = ""
+    let [disabled, setDisabled] = useState(false)
+    let fill = disabled ? "#676D78" : "#cfcfcf"
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
-        if (e.target.value.length < 1) {
-            setIconClassname(`${chatInput.icon}`)
-        } 
+        let inputValue = e.target.value
+        value = inputValue
+        console.log(`Input value changed: ${inputValue} ${value}`)
+        if (e.target.value.length > 0) {
+            setDisabled(false)
+        } else {
+            setDisabled(true)
+        }
     }
     return (
         <div className={`${chatInput.inputDiv}`}>
@@ -16,7 +23,9 @@ const ChatInput = () => {
                 aria-label="chat input"
                 placeholder="Type a message"
                 onChange={handleChange}
-                icon={<Send className={`${iconClassname}`} />}
+                onFocus={() => setDisabled(true)}
+                isDisabled={disabled}
+                icon={<Send className={`${chatInput.icon} ${chatInput.animate}`} fill={fill} />}
             />
         </div>
     )

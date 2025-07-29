@@ -6,20 +6,22 @@ type InputFieldIconProps = {
     label?: string;
     type: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
     className?: string;
     id?: string;
     value?: string;
     placeholder?: string;
     maxLength?: number;
-    icon: React.JSX.Element
+    icon: React.JSX.Element;
+    isDisabled?: boolean;
 }
 
-export default function InputFieldIcon({ label, name, type, onChange, maxLength, id, value, className, icon, placeholder }: InputFieldIconProps) {
+export default function InputFieldIcon({ label, name, type, onChange, onFocus, maxLength, id, value, className, icon, placeholder, isDisabled }: InputFieldIconProps) {
     return (
         <>
             <label htmlFor={name}>{label}</label>
-            <input name={name} type={type} onChange={onChange} maxLength={maxLength} required autoComplete='true' id={id} value={value} className={className} placeholder={placeholder} />
-            <button type='button' className={forms.inlineIcon}>
+            <input name={name} type={type} onChange={onChange} onFocus={onFocus} maxLength={maxLength} required autoComplete='true' id={id} value={value} className={className} placeholder={placeholder} />
+            <button type='button' className={forms.inlineIcon} disabled={isDisabled}>
                 {icon}
             </button>
         </>

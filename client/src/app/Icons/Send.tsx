@@ -6,7 +6,7 @@ type SendProps = {
   height?: number;
 }
 
-const Send = ({ background, className, fill = "#cfcfcf", width = 100, height = 100 }: SendProps) => {
+const Send = ({ background, className, fill = "#cfcfcf", width = 100, height = 24 }: SendProps) => {
   return (
     <svg
       viewBox="0 0 24 24"

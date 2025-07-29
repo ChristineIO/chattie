@@ -39,7 +39,7 @@
 }
 
 .icon {
-  margin-top: -3.33rem;
+  margin-top: -1rem;
   margin-right: 1rem;
   position: fixed;
   cursor: pointer;
@@ -50,5 +50,5 @@
 }
 
 .animate:hover {
-  transform: scale(1.15);
+  transform: scaleY(1.09);
 }
